@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hotel Luxo – Reservas Online</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- BARRA SUPERIOR -->
+  <header class="topbar">
+    <div class="logo">
+      <span class="logo-icon">HL</span>
+      <span class="logo-text">Hotel Luxo</span>
+    </div>
+
+    <nav class="nav-links">
+      <a href="#reservas">Reservar</a>
+      <a href="#quartos">Quartos</a>
+      <a href="#contacto">Contacto</a>
+      <button class="nav-btn">Iniciar sessão</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO: SÓ A IMAGEM DO HOTEL + TEXTO POR CIMA -->
+    <section class="hero" id="topo">
+      <div class="hero-overlay">
+        <span class="hero-badge">Hotel Luxo</span>
+        <h1>Reserve a sua estadia perfeita à beira-mar</h1>
+        <p>Vistas únicas, tranquilidade absoluta e conforto em cada detalhe.</p>
+        <a href="#reservas" class="hero-btn">Ver disponibilidade</a>
+      </div>
+    </section>
+
+    <!-- ÁREA DE RESERVA + FUNDO MÁRMORE -->
+    <section class="reserva-area" id="reservas">
+      <div class="reserva-wrapper">
+        <h2>Reserve a sua estadia perfeita à beira-mar</h2>
+        <p>
+          Quartos confortáveis, vistas únicas e um refúgio de tranquilidade.
+          Reserve em poucos segundos e receba confirmação imediata.
+        </p>
+
+        <section class="booking-card">
+          <h3>Faça a sua reserva</h3>
+
+          <form id="form-reserva" class="booking-form">
+            <div class="form-group">
+              <label for="nome">Nome</label>
+              <input type="text" id="nome" required placeholder="O seu nome completo">
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" required placeholder="email@exemplo.com">
+            </div>
+
+            <div class="form-group">
+              <label for="quarto">Tipo de quarto</label>
+              <select id="quarto" required>
+                <option value="Quarto Twin">Quarto Twin</option>
+                <option value="Quarto Casal">Quarto Casal</option>
+                <option value="Quarto Individual">Quarto Individual</option>
+              </select>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="checkin">Check-in</label>
+                <input type="date" id="checkin" required>
+              </div>
+
+              <div class="form-group">
+                <label for="checkout">Check-out</label>
+                <input type="date" id="checkout" required>
+              </div>
+            </div>
+
+            <button type="submit" class="primary-btn">Ver disponibilidade</button>
+          </form>
+
+          <div id="mensagem-reserva" class="feedback" hidden></div>
+        </section>
+      </div>
+    </section>
+
+    <!-- TIPOS DE QUARTO (continua com o fundo marmore) -->
+    <section class="rooms-section" id="quartos">
+      <h2>Tipos de quarto</h2>
+      <p class="rooms-intro">
+        Escolha o quarto ideal para a sua estadia. Pode selecionar o tipo de quarto diretamente no card.
+      </p>
+
+      <div class="rooms-grid">
+
+        <!-- Quarto Twin -->
+        <article class="room-card" data-room="Quarto Twin">
+          <img src="quarto2ind.jpg" alt="Quarto Twin com duas camas individuais">
+          <div class="room-info">
+            <h3>Quarto Twin</h3>
+            <p>Perfeito para amigos ou colegas. Duas camas individuais, vista jardim e casa de banho em mármore.</p>
+            <ul class="room-tags">
+              <li>2 hóspedes</li>
+              <li>Pequeno-almoço incluído</li>
+              <li>Wi-Fi gratuito</li>
+            </ul>
+            <button type="button" class="secondary-btn choose-room">
+              Escolher este quarto
+            </button>
+          </div>
+        </article>
+
+        <!-- Quarto Casal -->
+        <article class="room-card" data-room="Quarto Casal">
+          <img src="quartocasal.jpg" alt="Quarto com cama de casal">
+          <div class="room-info">
+            <h3>Quarto Casal</h3>
+            <p>Ambiente acolhedor para duas pessoas, cama queen, iluminação suave e acabamentos em dourado.</p>
+            <ul class="room-tags">
+              <li>2 hóspedes</li>
+              <li>Vista panorâmica</li>
+              <li>Check-in antecipado (mediante disponibilidade)</li>
+            </ul>
+            <button type="button" class="secondary-btn choose-room">
+              Escolher este quarto
+            </button>
+          </div>
+        </article>
+
+        <!-- Quarto Individual -->
+        <article class="room-card" data-room="Quarto Individual">
+          <img src="quartoind.jpg" alt="Quarto individual com cama confortável">
+          <div class="room-info">
+            <h3>Quarto Individual</h3>
+            <p>Ideal para viajantes a solo. Espaço otimizado, secretária de trabalho e muita tranquilidade.</p>
+            <ul class="room-tags">
+              <li>1 hóspede</li>
+              <li>Secretária de trabalho</li>
+              <li>Wi-Fi de alta velocidade</li>
+            </ul>
+            <button type="button" class="secondary-btn choose-room">
+              Escolher este quarto
+            </button>
+          </div>
+        </article>
+
+        <!-- Espaço Comum -->
+        <article class="room-card common-space">
+          <img src="all.jpg" alt="Cozinha e sala comum do hotel">
+          <div class="room-info">
+            <h3>Cozinha &amp; Sala Comum</h3>
+            <p>
+              Espaço partilhado com cozinha totalmente equipada, mesas amplas e ambiente confortável para refeições e convívio.
+            </p>
+            <ul class="room-tags">
+              <li>Aberto 24h</li>
+              <li>Café e chá disponíveis</li>
+              <li>Vista para o bosque</li>
+            </ul>
+          </div>
+        </article>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="contacto">
+    <p>© 2024 Hotel Luxo — Todos os direitos reservados.</p>
+  </footer>
+
+  <!-- JS -->
+  <script>
+    const API_URL = 'http://localhost:3000';
+
+    // selecionar tipo de quarto a partir dos cards
+    document.querySelectorAll('.choose-room').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        const card = btn.closest('.room-card');
+        const roomName = card.getAttribute('data-room');
+
+        const select = document.getElementById('quarto');
+        select.value = roomName;
+
+        document.querySelectorAll('.room-card').forEach(function (c) {
+          c.classList.remove('selected');
+        });
+        card.classList.add('selected');
+
+        document.getElementById('reservas').scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      });
+    });
+
+    // enviar reserva para a API
+    document.getElementById('form-reserva').addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const mensagemBox = document.getElementById('mensagem-reserva');
+      mensagemBox.hidden = true;
+      mensagemBox.classList.remove('erro');
+
+      const reserva = {
+        nome: document.getElementById('nome').value,
+        email: document.getElementById('email').value,
+        quarto: document.getElementById('quarto').value,
+        data_checkin: document.getElementById('checkin').value,
+        data_checkout: document.getElementById('checkout').value
+      };
+
+      try {
+        const res = await fetch(API_URL + '/reservas', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(reserva)
+        });
+
+        const data = await res.json();
+
+        if (!res.ok) {
+          mensagemBox.textContent = data.erro || 'Ocorreu um erro ao efetuar a reserva.';
+          mensagemBox.classList.add('erro');
+          mensagemBox.hidden = false;
+          return;
+        }
+
+        mensagemBox.innerHTML =
+          '<strong>Reserva confirmada!</strong><br>' +
+          'Nº da reserva: <strong>' + data.id + '</strong><br>' +
+          reserva.nome + ', ' + reserva.quarto + '<br>' +
+          reserva.data_checkin + ' → ' + reserva.data_checkout;
+
+        mensagemBox.hidden = false;
+        e.target.reset();
+        document.querySelectorAll('.room-card').forEach(function (c) {
+          c.classList.remove('selected');
+        });
+      } catch (err) {
+        mensagemBox.textContent = 'Não foi possível comunicar com o servidor.';
+        mensagemBox.classList.add('erro');
+        mensagemBox.hidden = false;
+      }
+    });
+  </script>
+</body>
+</html>
