@@ -45,8 +45,8 @@ app.get('/reservas', (req, res) => {
   });
 });
 
-// 🔥 Corrigir refresh e acesso direto no Railway
-app.get('*', (req, res) => {
+// Esta rota deve ficar por último!
+app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
