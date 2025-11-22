@@ -45,11 +45,10 @@ app.get('/reservas', (req, res) => {
   });
 });
 
-// Esta rota deve ficar por último!
-app.get('/*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
-});
-
 app.listen(PORT, () => {
   console.log(`Servidor a correr na porta ${PORT}`);
+});
+
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
