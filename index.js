@@ -1,21 +1,12 @@
 const express = require('express');
-const cors = require('cors');
-const path = require('path');       // 👈 adicionar isto
+const path = require('path');
 const db = require('./db');
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;  // 👈 Agora funciona no Railway!
 
-app.use(cors());
 app.use(express.json());
-
-// Servir ficheiros estáticos da pasta "public"
-app.use(express.static(path.join(__dirname, 'public')));  // 👈 linha importante
-
-// (se quiseres podes apagar esta rota ou mudar para /api)
-// app.get('/', (req, res) => {
-//   res.send('API de Reservas de Hotel está a funcionar!');
-// });
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Criar reserva
 app.post('/reservas', (req, res) => {
@@ -54,6 +45,11 @@ app.get('/reservas', (req, res) => {
   });
 });
 
+// 🔥 Corrigir refresh e acesso direto no Railway
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
 app.listen(PORT, () => {
-  console.log(`Servidor a correr em http://localhost:${PORT}`);
+  console.log(`Servidor a correr na porta ${PORT}`);
 });

@@ -23,7 +23,7 @@
   </header>
 
   <main>
-    <!-- HERO: SÓ A IMAGEM DO HOTEL + TEXTO POR CIMA -->
+    <!-- HERO -->
     <section class="hero" id="topo">
       <div class="hero-overlay">
         <span class="hero-badge">Hotel Luxo</span>
@@ -33,7 +33,7 @@
       </div>
     </section>
 
-    <!-- ÁREA DE RESERVA + FUNDO MÁRMORE -->
+    <!-- ÁREA DE RESERVA -->
     <section class="reserva-area" id="reservas">
       <div class="reserva-wrapper">
         <h2>Reserve a sua estadia perfeita à beira-mar</h2>
@@ -85,7 +85,7 @@
       </div>
     </section>
 
-    <!-- TIPOS DE QUARTO (continua com o fundo marmore) -->
+    <!-- TIPOS DE QUARTO -->
     <section class="rooms-section" id="quartos">
       <h2>Tipos de quarto</h2>
       <p class="rooms-intro">
@@ -93,7 +93,6 @@
       </p>
 
       <div class="rooms-grid">
-
         <!-- Quarto Twin -->
         <article class="room-card" data-room="Quarto Twin">
           <img src="quarto2ind.jpg" alt="Quarto Twin com duas camas individuais">
@@ -144,25 +143,41 @@
             </button>
           </div>
         </article>
+      </div> <!-- fim .rooms-grid -->
+    </section> <!-- fim .rooms-section -->
 
-        <!-- Espaço Comum -->
-        <article class="room-card common-space">
-          <img src="all.jpg" alt="Cozinha e sala comum do hotel">
-          <div class="room-info">
-            <h3>Cozinha &amp; Sala Comum</h3>
-            <p>
-              Espaço partilhado com cozinha totalmente equipada, mesas amplas e ambiente confortável para refeições e convívio.
-            </p>
-            <ul class="room-tags">
-              <li>Aberto 24h</li>
-              <li>Café e chá disponíveis</li>
-              <li>Vista para o bosque</li>
-            </ul>
-          </div>
-        </article>
+    <!-- ÁREAS COMUNS -->
+    <section class="areas-comuns" id="areas-comuns">
+  <h2>Áreas Comuns</h2>
+  <p>Desfrute de espaços acolhedores projetados para o seu conforto, lazer e bem-estar.</p>
 
-      </div>
-    </section>
+  <div class="areas-grid">
+    <div class="area-item">
+      <img src="convivio.jpg" alt="Espaço de convívio">
+      <h3>Convívio</h3>
+      <p>Um espaço confortável para descansar, socializar e aproveitar momentos tranquilos.</p>
+    </div>
+
+    <div class="area-item">
+      <img src="museu_interativo.jpg" alt="Museu Interativo">
+      <h3>Museu Interativo</h3>
+      <p>Experiência cultural imersiva sobre o Caminho de Santiago.</p>
+    </div>
+
+    <div class="area-item">
+      <img src="sala_recuperação.jpg" alt="Sala de Recuperação">
+      <h3>Sala de Recuperação</h3>
+      <p>Relaxe e recupere as energias com todo o conforto que merece.</p>
+    </div>
+
+    <div class="area-item">
+      <img src="all.jpg" alt="Cozinha e Sala Comum">
+      <h3>Cozinha &amp; Sala Comum</h3>
+      <p>Espaço equipado e acolhedor para refeições e convívio.</p>
+    </div>
+  </div>
+</section>
+
   </main>
 
   <footer class="footer" id="contacto">
@@ -171,7 +186,7 @@
 
   <!-- JS -->
   <script>
-    const API_URL = 'http://localhost:3000';
+    const API_URL = '';
 
     // selecionar tipo de quarto a partir dos cards
     document.querySelectorAll('.choose-room').forEach(function (btn) {
@@ -210,7 +225,7 @@
       };
 
       try {
-        const res = await fetch(API_URL + '/reservas', {
+        const res = await fetch('/reservas', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(reserva)
