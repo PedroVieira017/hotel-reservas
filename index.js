@@ -4,6 +4,7 @@ const db = require('./db');
 
 const app = express();
 
+// Middlewares
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -44,12 +45,14 @@ app.get('/reservas', (req, res) => {
   });
 });
 
+// Rota principal (home)
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
+// Porta Railway
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`Servidor a correr na porta ${PORT}`);
-});
-
-app.get('*', (req, res) => {
-  res.send('Servidor ativo! Rota não encontrada.');
 });
