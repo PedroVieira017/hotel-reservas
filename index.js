@@ -3,7 +3,6 @@ const path = require('path');
 const db = require('./db');
 
 const app = express();
-const PORT = process.env.PORT || 3000;  // 👈 Agora funciona no Railway!
 
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
@@ -45,7 +44,7 @@ app.get('/reservas', (req, res) => {
   });
 });
 
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`Servidor a correr na porta ${PORT}`);
 });
 
